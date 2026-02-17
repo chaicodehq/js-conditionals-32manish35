@@ -32,4 +32,45 @@
  */
 export function getSeasonActivity(month, temperature) {
   // Your code here
+  if((month<0 || month> 12)){
+    return null
+  }
+  if((month==1||month==2||month==12)&&temperature<0){
+   let activity = "skiing"
+   return {season:"Winter" , activity:activity}
+  }
+  else if((month==1||month==2||month==12)&&temperature>=0){
+    let activity = "ice skating"
+    return {season:"Winter" , activity:activity}
+  }
+  else if((month==3||month==4||month==5)&&temperature>20){
+    let activity = "hiking"
+   return {season:"Spring" , activity:activity}
+  }
+  else if((month==3||month==4||month==5)&&temperature<=20){
+    let activity=  "museum visit"
+     return {season:"Spring" , activity:activity}
+  }
+  else if((month==6||month==7||month==8)&&temperature>35){
+   let activity=  "swimming"
+    return {season:"Summer" , activity:activity}
+  }
+  else if((month==6||month==7||month==8)&&temperature<=35){
+    let activity = "cycling"
+    return {season:"Summer" , activity:activity}
+  }
+  else if((month==9||month==10||month==11)&&temperature>15){
+   let activity = "nature walk"
+   return {season:"Autumn" , activity:activity}
+  }
+  else if((month==9||month==10||month==11)&&temperature<=15){
+   let activity = "reading at a cafe"
+   
+   return {season:"Autumn" , activity:activity}
+  }
+  else {
+    return null
+  }
+  
 }
+console.log(getSeasonActivity(9,15))
